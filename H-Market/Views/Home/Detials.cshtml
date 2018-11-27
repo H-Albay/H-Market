@@ -1,7 +1,8 @@
-﻿
-@{
+﻿@using H_Market.Entity;
+@model Product 
     ViewBag.Title = "Detials";
 }
+
 
 <div class="row mt-3 ">
     <div class="col-md-6">
@@ -9,7 +10,7 @@
     </div>
     <div class="col-md-6">
         <div class="row mt-1">
-            <h1>Samsung S3 Mini</h1>
+            <h1>@Model.Name</h1>
         </div>
         <div class="row mt-1">
             <span class="badge badge-primary">Stokta</span>
@@ -17,7 +18,7 @@
         </div>
         <div class="row mt-1">
             <div id="description">
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quis commodi molestiae cupiditate. Autem in totam ea modi itaque aut iste alias dolore quos, possimus et incidunt labore tempora facilis natus.</p>
+                <p>@Model.Desciption</p>
             </div>
         </div>
         <div class="row mt-1">

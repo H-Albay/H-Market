@@ -3,23 +3,24 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using H_Market.Entity;
 
 namespace H_Market.Controllers
 {
     public class HomeController : Controller
     {
-        // GET: Home
+        DataContext context = new DataContext();
         public ActionResult Index()
-        {
-            return View();
+        {   
+            return View(context.Products.Where(i=>i.IsHome && i.IsApproved).ToList());
         }
-        public ActionResult Detials()
+        public ActionResult Detials(int id)
         {
-            return View();
+            return View(context.Products.Where(i=>i.Id==id).FirstOrDefault());
         }
         public ActionResult List()
         {
-            return View();
+            return View(context.Products.Where(i=>i.IsApproved).ToList());
         }
 
     }
