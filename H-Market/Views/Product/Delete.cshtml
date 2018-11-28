@@ -1,0 +1,37 @@
+﻿@model H_Market.Entity.Product
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="container pb-4">
+
+   
+    <div>
+
+        <hr />
+        <dl class="dl-horizontal">
+ 
+            <dt>
+                @Html.DisplayNameFor(model => model.Name)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Name)
+            </dd>
+        </dl>
+
+        <hr />
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-actions no-color">
+                <h4>Ürünü silmek istediğinizden emin misin?</h4>
+                <input type="submit" value="Sil" class="btn btn-danger" />
+                @Html.ActionLink("Önceki Sayfa", "Index", null, new { @class = "btn btn-primary" })
+            </div>
+        }
+    </div>
+</div>
