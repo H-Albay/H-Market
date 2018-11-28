@@ -1,0 +1,21 @@
+﻿@using H_Market.Models;
+@model IEnumerable<ProductModel>
+
+<div class="row">
+
+    @foreach (var p in Model)
+    {
+        <div class="col-md-4">
+            <div class="card">
+                <img class="card-img-top" alt="@p.Name" src="~/Upload/@p.Image" data-holder-rendered="true" style="height: 180px; width: 100%; display: block;">
+                <div class="card-body">
+                    <h4 class="card-title"><a href="~/Home/Detials/@p.Id">@p.Name</a></h4>
+                    <p class="card-text pt-2">@p.Desciption</p>
+                </div>
+                <div class="card-footer">
+                    <small class="text-muted product-price"><i class="fa fa-try" aria-hidden="true"></i> @p.Price</small>
+                </div>
+            </div>
+        </div>
+    }
+</div>
