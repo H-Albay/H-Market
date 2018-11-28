@@ -17,7 +17,7 @@
 <body>
 
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="~/Home/Index">H-Market</a>
+        <a class="navbar-brand" href="~/Product/Index"><strong>H-Market Yönetim Paneli</strong></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor03" aria-controls="navbarColor03" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -25,12 +25,12 @@
         <div class="collapse navbar-collapse" id="navbarColor03">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" href="~/Home/Index">Anasayfa <span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="~/Product/Index">Ürün Listesi <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="~/Home/List">Ürün Listesi</a>
+                    <a class="nav-link" href="~/Category/Index">Kategori Listesi</a>
                 </li>
-              
+
             </ul>
             <form class="form-inline">
                 <input class="form-control mr-sm-2" type="search" placeholder="Ara" aria-label="Search">
@@ -39,8 +39,8 @@
         </div>
     </nav>
 
-        @RenderBody();
- 
+    @RenderBody();
+
     <footer class="footer">
         <div class="container">
             <span class="text-muted">FOOTER</span>
