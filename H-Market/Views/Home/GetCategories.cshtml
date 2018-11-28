@@ -1,0 +1,23 @@
+﻿@model IEnumerable<H_Market.Entity.Category>
+
+
+<ul class="list-group">
+
+    <li class="list-group-item">
+
+        <a href="~/Home/List/">
+            <i class="fas fa-angle-double-right" style="" aria-hidden="true"></i>
+            Tüm Kategoriler</a>
+    </li>
+
+    @foreach (var item in Model)
+    {
+        <li class="list-group-item">
+            <a href="~/Home/List/@item.Id">
+                <i class="fas fa-chevron-right"></i>
+                @item.Name
+            </a>
+        </li>
+    }
+</ul>
+    
