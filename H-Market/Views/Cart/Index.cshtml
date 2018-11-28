@@ -1,0 +1,85 @@
+﻿@model H_Market.Models.Cart
+@{
+    ViewBag.Title = "Index";
+}
+<div class="container pb-5">   
+    <div class="row">
+        <div class="col-md-12">
+            <h2>Alışveriş Sepeti</h2>
+            <hr />
+
+            @if (Model.CartLines.Count>0)
+            {
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>Adet</th>
+                        <th>Ürün Adı</th>
+                        <th>Fiyat</th>
+                        <th>Ara Toplam</th>
+                        <td></td>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var i in Model.CartLines)
+                    {
+                        <tr>
+                            <td>
+                                <img src="/Upload/@i.Product.Image" width="50" />
+                            </td>
+                            <td>
+                                @i.Quantity
+                            </td>
+                            <td>
+                                @i.Product.Name
+                            </td>
+                            <td>
+                                @i.Product.Price
+                            </td>
+                            <td>
+                                @((i.Product.Price * i.Quantity).ToString("C"))
+                            </td>
+                            <td>
+                                @using (Html.BeginForm("RemoveFromCart", "Cart"))
+                                {
+                                    @Html.Hidden("Id", i.Product.Id)
+                                    <button type="submit" class="btn btn-danger">
+
+                                        <i class="fas fa-trash-alt" style="font-size: larger;"></i>
+                                        Sil
+                                    </button>
+
+                                }
+                            </td>
+
+                        </tr>
+
+                    }
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <th colspan="5" class="text-right">Toplam</th>
+                        <td>
+                            @Model.Total().ToString("C")
+                        </td>
+                    </tr>
+                </tfoot>
+            </table>       
+            }
+            else
+            {
+                <div class="alert alert-warning" role="alert">
+                    <i class="fas fa-exclamation" ></i>
+                    <span>Alışveriş sepetinizde ürün bulunmamaktadır.</span>
+                </div>
+            }
+            
+        </div>
+    </div>
+</div>
+
+
+
+
+

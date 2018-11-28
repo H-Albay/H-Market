@@ -1,69 +1,89 @@
 ﻿@using H_Market.Entity;
 @model Product 
+@{
     ViewBag.Title = "Detials";
 }
 
+<div id="product-detials"  class="container" pb-5>
+    <div class="row mt-3 ">
+        <div class="col-md-2"> </div>
+        <div class="col-md-4">
+            <img src="~/Upload/@Model.Image" class="img-fluid rounded " alt="urun">
+        </div>
 
-<div class="row mt-3 ">
-    <div class="col-md-6">
-        <img src="~/theme/img/urun.jpg" class="img-fluid rounded " alt="ornek-urun">
-    </div>
-    <div class="col-md-6">
-        <div class="row mt-1">
-            <h1>@Model.Name</h1>
-        </div>
-        <div class="row mt-1">
-            <span class="badge badge-primary">Stokta</span>
-            <span class="product-number"> #515217</span>
-        </div>
-        <div class="row mt-1">
-            <div id="description">
-                <p>@Model.Desciption</p>
+        <div class="col-md-4">
+            <div class="row mt-1">
+                <h1>@Model.Name</h1>
             </div>
-        </div>
-        <div class="row mt-1">
-            <div class="col-md-4">
-                <i class="fa fa-star"></i>
-                <i class="fa fa-star"></i>
-                <i class="fa fa-star" aria-hidden="true"></i>
-                <i class="fa fa-star" aria-hidden="true"></i>
-                <i class="fa fa-star-half-alt" aria-hidden="true"></i>
-                <span class="badge badge-success">55</span>
+            <div class="row mt-1">
+                @if (Model.IsApproved == true)
+                {
+                    <span class="badge badge-primary">Stokta</span>
+                }
+                else
+                {
+                    <span class="badge badge-danger">Stokta Yok</span>
+                }
+
+                <span class="product-number"> #515217</span>
+            </div>
+            <div class="row mt-1">
+                <div id="description">
+                    <p>@Model.Desciption</p>
+                </div>
+            </div>
+            <div class="row mt-1">
+                <div class="col-md-6">
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star-half-alt" aria-hidden="true"></i>
+                    <span class="badge badge-success">55</span>
+
+                </div>
+                <div class="col-md-4">Yorum</div>
 
             </div>
-            <div class="col-md-4">Yorum yap</div>
-        </div>
-        <div class="row mt-1">
-            <div class="col-md-12">
-                <h4 id="product-price">$120</h4>
+            <div class="row mt-1">
+                <div class="col-md-6">
+                    <h4 id="product-price"><i class="fas fa-lira-sign"></i>120</h4>
+                </div>
+                <div class="col-md-6">
+                    @using (Html.BeginForm("AddToCart","Cart"))
+                    {
+                        @Html.HiddenFor(i=>i.Id)
+                        <button type="submit" class="btn btn-success">
+                        <i class="fas fa-cart-plus"></i> Sepete Ekle
+                        </button>
+                    }
+                  
+                </div>
             </div>
+            
         </div>
-        <div class="row mt-1">
-            <div class="col-md-12">
-                <button class="btn btn-success">
-                    <i class="fas fa-cart-plus"></i> Sepete Ekle
-                </button>
-            </div>
-        </div>
+
+        <div class="col-md-2"> </div>
     </div>
-</div>
-<div class="row mt-3">
-    <div class="col-md-12">
-        <ul class="nav nav-tabs mb-3" id="pills-tab" role="tablist">
-            <li class="nav-item">
-                <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">Home</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false">Profile</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab" aria-controls="pills-contact" aria-selected="false">Contact</a>
-            </li>
-        </ul>
-        <div class="tab-content" id="pills-tabContent">
-            <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">Ürün açıklama</div>
-            <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">Ürün profil</div>
-            <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">ürün detay</div>
+
+    <div class="row mt-3">
+        <div class="col-md-12">
+            <ul class="nav nav-tabs mb-3" id="pills-tab" role="tablist">
+                <li class="nav-item">
+                    <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false">Profile</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab" aria-controls="pills-contact" aria-selected="false">Contact</a>
+                </li>
+            </ul>
+            <div class="tab-content" id="pills-tabContent">
+                <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">Ürün açıklama</div>
+                <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">Ürün profil</div>
+                <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">ürün detay</div>
+            </div>
         </div>
     </div>
 </div>

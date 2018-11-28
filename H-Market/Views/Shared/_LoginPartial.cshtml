@@ -1,0 +1,27 @@
+﻿
+
+<ul class="navbar-nav my-2 my-lg-0">
+    @if (Request.IsAuthenticated)
+    {
+        //Kullanıcı adını logout linklerini göster.
+        <li class="nav-item active">
+            <a class="nav-link" href="/">@User.Identity.Name"</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="~/Account/Logout">Çıkış</a>
+        </li>
+    }
+    else
+    {
+        //login ve register imklerini çıkar.
+        <li class="nav-item active">
+            <a class="nav-link" href="~/Account/Login">Giriş Yap</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="~/Account/Register">Üye Ol</a>
+        </li>
+    }
+   
+
+</ul>
+
