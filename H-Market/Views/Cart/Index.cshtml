@@ -10,8 +10,8 @@
 
             @if (Model.CartLines.Count>0)
             {
-            <table class="table table-bordered">
-                <thead>
+                <table class="table table-bordered">
+                    <thead>
                     <tr>
                         <th></th>
                         <th>Adet</th>
@@ -20,8 +20,8 @@
                         <th>Ara Toplam</th>
                         <td></td>
                     </tr>
-                </thead>
-                <tbody>
+                    </thead>
+                    <tbody>
                     @foreach (var i in Model.CartLines)
                     {
                         <tr>
@@ -56,16 +56,20 @@
                         </tr>
 
                     }
-                </tbody>
-                <tfoot>
+                    </tbody>
+                    <tfoot>
                     <tr>
                         <th colspan="5" class="text-right">Toplam</th>
                         <td>
                             @Model.Total().ToString("C")
                         </td>
                     </tr>
-                </tfoot>
-            </table>       
+                    </tfoot>
+                </table>
+                <div class="text-center">
+                    <a href="~//Home/List" class="btn btn-primary" ><i class="far fa-arrow-alt-circle-left"></i> Alışverişe Devam et</a>
+                    <a href="~//Cart/Checkout" class="btn btn-primary">Alışverişi Tamamla <i class="far fa-calendar-check"></i></a>
+                </div>               
             }
             else
             {
